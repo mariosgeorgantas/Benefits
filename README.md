@@ -1,7 +1,7 @@
 ## Benefits
 Benefits is a web-based dialog system that provides information about benefits whom people are eligible for. This system includes a questionnaire for eligibility about 10 basic & permanent benefits. 
 
-Visit my web-based dialogue system [here]https://github.com/mariosgeorgantas/Benefits.git.
+Visit my web-based dialogue system [here](https://govgr-benefits.github.io/benefits/).
 
 ## Hellenic Open University
 This project was created for the needs of my thesis during master's studies.
@@ -24,6 +24,7 @@ The project elements are listed bellow:
 index.html # Main HTML file
 styles.css # Custom CSS styles
 js/jquery-functions.js # Custom jQuery functions to fetch questions and to handle answers in the questionnaire
+js/change-language-functions.js # Language functions
 README.md # Project documentation
 Screenshots # photos of the usage of questionnaire
 
