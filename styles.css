@@ -162,24 +162,29 @@ body {
 
 /* Το overlay που καλύπτει ολόκληρη την οθόνη */
 .disclaimer-overlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px; /* Προσθέτει λίγο padding για αποφυγή κοψίματος */
+    display: none; /* Απόκρυψη από προεπιλογή */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Μισοδιάφανο φόντο */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-/* Όταν το overlay είναι ενεργό, προσθέτουμε μια κλάση για εμφάνιση */
 .disclaimer-overlay.active {
-  display: flex;
+    display: flex; /* Μόνο όταν είναι ενεργό */
 }
 
-/* Το περιεχόμενο του modal (popup) */
 .disclaimer {
-  width: 95%;
-  max-width: 600px; /* Αυξάνει το μέγιστο πλάτος για καλύτερη ανάγνωση */
-  padding: 20px; /* Προσθέτει μεγαλύτερη απόσταση από τις άκρες */
-  font-size: 18px; /* Ελαφρώς μεγαλύτερη γραμματοσειρά */
-  line-height: 1.6; /* Αυξάνει το ύψος γραμμής για καλύτερη αναγνωσιμότητα */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 80%;
+    overflow-y: auto; /* Αν το κείμενο είναι μεγάλο, επιτρέπει κύλιση */
 }
 #closeDisclaimer {
   background-color: green;
@@ -192,8 +197,8 @@ body {
 }
 
 /* Επιπλέον, όταν το modal είναι ανοιχτό, αποτρέπουμε pointer events στην υπόλοιπη σελίδα */
-body.modal-open *:not(.disclaimer-overlay):not(.disclaimer-overlay *) {
-  pointer-events: none;
+body.modal-open {
+    overflow: hidden;
 }
 
 #disclaimer-prompt {
