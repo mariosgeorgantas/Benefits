@@ -205,3 +205,41 @@ body.modal-open {
   /* border: 1px solid red; */
   width: 100%;
 }
+@media (max-width: 768px) {
+  .govgr-width-container {
+    padding: 10px;
+  }
+
+  .govgr-heading-xl {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .govgr-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .govgr-footer__content {
+    text-align: center;
+  }
+
+  .disclaimer {
+    width: 90%;
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .buttons-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
