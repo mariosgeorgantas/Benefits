@@ -61,15 +61,22 @@ body {
 }
 
 @media only screen and (max-width: 893px) {
-  #languageBtn {
-    position: relative;
-  }
   .header-row,
   .govgr-header__content {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 15px; /* Προσθέτει απόσταση μεταξύ των στοιχείων */
   }
+}
+
+@media only screen and (max-width: 600px) {
+  .header-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Βοηθά στην καλύτερη απόσταση σε ακόμα μικρότερες οθόνες */
+  }
+}
 
   .govgr-header__content {
     position: relative;
