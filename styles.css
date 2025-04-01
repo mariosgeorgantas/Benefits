@@ -61,22 +61,15 @@ body {
 }
 
 @media only screen and (max-width: 893px) {
+  #languageBtn {
+    position: relative;
+  }
   .header-row,
   .govgr-header__content {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px; /* Προσθέτει απόσταση μεταξύ των στοιχείων */
   }
-}
-
-@media only screen and (max-width: 600px) {
-  .header-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Βοηθά στην καλύτερη απόσταση σε ακόμα μικρότερες οθόνες */
-  }
-}
 
   .govgr-header__content {
     position: relative;
@@ -105,11 +98,10 @@ body {
 }
 
 .explanation-tooltip .explanation-tooltiptext {
-  max-width: 80vw; /* Επιτρέπει μεγαλύτερο tooltip χωρίς να κόβεται */
-  white-space: normal; /* Επιτρέπει το κείμενο να κάνει wrap */
-  left: 50%;
-  transform: translateX(-50%); /* Κεντράρει το tooltip */
-}
+  visibility: hidden;
+  /* Μέγιστο πλάτος του tooltip */
+  width: 400px;
+  max-width: 400px;
 
   white-space: none; /* Επιτρέπει το wrapping σε νέες γραμμές, χωρίς να σπάει οι λέξεις */
   word-break: normal; /* Δεν διασπά τις λέξεις */
@@ -152,9 +144,10 @@ body {
   border-color: transparent #333 transparent transparent;
 }
 .buttons-container {
-  flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  justify-content: flex-start;
+  /* border: 1px solid red; */
+  gap: 15px;
 }
 #backQuestion {
   border-radius: 5px;
@@ -162,33 +155,37 @@ body {
 
 /* Το overlay που καλύπτει ολόκληρη την οθόνη */
 .disclaimer-overlay {
-    display: none; /* Απόκρυψη αρχικά */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* ημίδιαφανές μαύρο */
+  display: none; /* αρχικά κρυφό */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  /* Αποκλείει όλα τα click στην υπόλοιπη σελίδα */
+  pointer-events: auto;
 }
 
-/* Όταν το modal είναι ενεργό */
+/* Όταν το overlay είναι ενεργό, προσθέτουμε μια κλάση για εμφάνιση */
 .disclaimer-overlay.active {
-    display: flex; 
+  display: flex;
 }
+
+/* Το περιεχόμενο του modal (popup) */
 .disclaimer {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%; 
-    max-width: 400px; /* Περιορίζει το μέγιστο πλάτος */
-    max-height: 70vh; /* Περιορίζει το ύψος για να μην γεμίζει όλη την οθόνη */
-    overflow-y: auto; /* Επιτρέπει την κύλιση αν το περιεχόμενο είναι μεγάλο */
-    text-align: left;
-    line-height: 1.5;
+  position: absolute;
+  top: 5%;
+  width: 40vw;
+  height: auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  z-index: 1001;
+  /* Εξασφαλίζει ότι το popup λαμβάνει pointer events */
+  pointer-events: auto;
 }
 #closeDisclaimer {
   background-color: green;
@@ -201,63 +198,11 @@ body {
 }
 
 /* Επιπλέον, όταν το modal είναι ανοιχτό, αποτρέπουμε pointer events στην υπόλοιπη σελίδα */
-body.modal-open {
-    overflow: hidden;
+body.modal-open *:not(.disclaimer-overlay):not(.disclaimer-overlay *) {
+  pointer-events: none;
 }
 
 #disclaimer-prompt {
   /* border: 1px solid red; */
   width: 100%;
-}
-@media (max-width: 768px) {
-  .govgr-width-container {
-    padding: 10px;
-  }
-
-  .govgr-heading-xl {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  .govgr-btn {
-    width: 100%;
-    font-size: 1rem;
-    padding: 12px;
-  }
-
-  .govgr-footer__content {
-    text-align: center;
-  }
-
-  .disclaimer {
-    width: 90%;
-  }
-
-  .buttons-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-}
-
-@media (min-width: 768px) {
-  .buttons-container {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-@media (max-width: 768px) {
-  .disclaimer {
-    width: 95%; /* Μεγαλύτερο πλάτος για καλύτερη εμφάνιση */
-    max-width: 380px;
-    max-height: 75vh; /* Μικρότερο ύψος για αποφυγή κοψίματος */
-    padding: 15px;
-  }
-
-  .disclaimer-overlay {
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-  }
 }
