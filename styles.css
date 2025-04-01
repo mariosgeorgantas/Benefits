@@ -105,10 +105,10 @@ body {
 }
 
 .explanation-tooltip .explanation-tooltiptext {
-  max-width: 90vw;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+  max-width: 80vw; /* Επιτρέπει μεγαλύτερο tooltip χωρίς να κόβεται */
+  white-space: normal; /* Επιτρέπει το κείμενο να κάνει wrap */
+  left: 50%;
+  transform: translateX(-50%); /* Κεντράρει το tooltip */
 }
 
   white-space: none; /* Επιτρέπει το wrapping σε νέες γραμμές, χωρίς να σπάει οι λέξεις */
@@ -162,18 +162,10 @@ body {
 
 /* Το overlay που καλύπτει ολόκληρη την οθόνη */
 .disclaimer-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* ημίδιαφανές μαύρο */
-  display: none; /* αρχικά κρυφό */
+  display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  /* Αποκλείει όλα τα click στην υπόλοιπη σελίδα */
-  pointer-events: auto;
+  padding: 10px; /* Προσθέτει λίγο padding για αποφυγή κοψίματος */
 }
 
 /* Όταν το overlay είναι ενεργό, προσθέτουμε μια κλάση για εμφάνιση */
@@ -183,17 +175,17 @@ body {
 
 /* Το περιεχόμενο του modal (popup) */
 .disclaimer {
-  position: absolute;
   width: 90%;
-  max-width: 350px;
+  max-width: 90vw; /* Αντί για σταθερό max-width */
   top: 10%;
-  padding: 1.5rem;top: 5%;
+  padding: 1.5rem;
   height: auto;
   background-color: #fff;
   border-radius: 8px;
   z-index: 1001;
-  /* Εξασφαλίζει ότι το popup λαμβάνει pointer events */
   pointer-events: auto;
+  text-align: justify; /* Βελτιώνει την αναγνωσιμότητα */
+  font-size: 16px; /* Εξασφαλίζει σωστή κλίμακα γραμματοσειράς */
 }
 #closeDisclaimer {
   background-color: green;
