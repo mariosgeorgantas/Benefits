@@ -98,10 +98,11 @@ body {
 }
 
 .explanation-tooltip .explanation-tooltiptext {
-  visibility: hidden;
-  /* Μέγιστο πλάτος του tooltip */
-  width: 400px;
-  max-width: 400px;
+  max-width: 90vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
   white-space: none; /* Επιτρέπει το wrapping σε νέες γραμμές, χωρίς να σπάει οι λέξεις */
   word-break: normal; /* Δεν διασπά τις λέξεις */
@@ -144,10 +145,9 @@ body {
   border-color: transparent #333 transparent transparent;
 }
 .buttons-container {
-  display: flex;
-  justify-content: flex-start;
-  /* border: 1px solid red; */
-  gap: 15px;
+  flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 #backQuestion {
   border-radius: 5px;
@@ -177,11 +177,12 @@ body {
 /* Το περιεχόμενο του modal (popup) */
 .disclaimer {
   position: absolute;
-  top: 5%;
-  width: 40vw;
+  width: 90%;
+  max-width: 350px;
+  top: 10%;
+  padding: 1.5rem;top: 5%;
   height: auto;
   background-color: #fff;
-  padding: 2rem;
   border-radius: 8px;
   z-index: 1001;
   /* Εξασφαλίζει ότι το popup λαμβάνει pointer events */
