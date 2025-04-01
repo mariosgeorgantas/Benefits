@@ -108,7 +108,7 @@ body {
   overflow-wrap: normal; /* Δεν αναγκάζει το σπάσιμο των λέξεων */
   background-color: #333;
   color: #fff;
-  text-align: left; /* Μπορείτε να το αλλάξετε σε center, αν προτιμάτε */
+  text-align: left; 
   padding: 5px;
   border-radius: 5px;
 
