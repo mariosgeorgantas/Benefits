@@ -162,7 +162,7 @@ body {
 
 /* Το overlay που καλύπτει ολόκληρη την οθόνη */
 .disclaimer-overlay {
-    display: none;
+    display: none; /* Απόκρυψη αρχικά */
     position: fixed;
     top: 0;
     left: 0;
@@ -172,23 +172,23 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    padding: 20px; /* Προσθέτει χώρο γύρω από το modal */
+    padding: 10px;
 }
 
+/* Όταν το modal είναι ενεργό */
 .disclaimer-overlay.active {
-    display: flex; /* Μόνο όταν είναι ενεργό */
+    display: flex; 
 }
-
 .disclaimer {
     background: white;
     padding: 20px;
     border-radius: 10px;
     width: 90%; 
     max-width: 400px; /* Περιορίζει το μέγιστο πλάτος */
-    max-height: 70vh; /* Περιορίζει το ύψος ώστε να μην γεμίζει όλη την οθόνη */
+    max-height: 70vh; /* Περιορίζει το ύψος για να μην γεμίζει όλη την οθόνη */
     overflow-y: auto; /* Επιτρέπει την κύλιση αν το περιεχόμενο είναι μεγάλο */
-    text-align: left; /* Το κείμενο να είναι αριστερά για πιο φυσική ανάγνωση */
-    line-height: 1.5; /* Βελτιώνει την αναγνωσιμότητα */
+    text-align: left;
+    line-height: 1.5;
 }
 #closeDisclaimer {
   background-color: green;
@@ -249,16 +249,15 @@ body.modal-open {
 }
 @media (max-width: 768px) {
   .disclaimer {
-    width: 90%;
-    max-width: 400px;
-    max-height: 70vh;
+    width: 95%; /* Μεγαλύτερο πλάτος για καλύτερη εμφάνιση */
+    max-width: 380px;
+    max-height: 75vh; /* Μικρότερο ύψος για αποφυγή κοψίματος */
     padding: 15px;
-    text-align: left;
   }
 
   .disclaimer-overlay {
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
   }
 }
