@@ -11,47 +11,6 @@ body {
   flex-wrap: wrap;
 }
 
-/*language button
-#languageBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 7px;
-  gap: 7px;
-  padding: 10px;
-  background-color: white;
-  border-radius: 4px;
-  color: #003375;
-  flex-wrap: nowrap;
-  width: 90px;
-  height: 50px;
-  font-size: 18px;
-  position: absolute;
-  right: 20px;
-}
-
-#evidences {
-  padding-left: 0.5rem;
-}
-
-#evidences ol {
-  list-style: none;
-  counter-reset: item;
-}
-#evidences li {
-  counter-increment: item;
-  margin-bottom: 5px;
-  font-size: 1.1em;
-}
-#evidences li:before {
-  margin-right: 10px;
-  content: counter(item);
-  background: #0065b3;
-  color: white;
-  width: 1.5rem;
-  text-align: center;
-  display: inline-block;
-}*/
 
 #intro-box {
   background-color: #f0f0f0;
@@ -99,32 +58,33 @@ body {
 
 .explanation-tooltip .explanation-tooltiptext {
   visibility: hidden;
+  /* Μέγιστο πλάτος του tooltip */
   width: 400px;
   max-width: 400px;
 
-  white-space: normal; /* Επιτρέπει το wrapping των λέξεων */
-  word-break: break-word; /* Σπάει λέξεις αν χρειάζεται */
-  overflow-wrap: break-word; /* Σιγουρεύεται ότι δεν θα ξεφύγει το κείμενο */
-  
+  white-space: none; /* Επιτρέπει το wrapping σε νέες γραμμές, χωρίς να σπάει οι λέξεις */
+  word-break: normal; /* Δεν διασπά τις λέξεις */
+  overflow-wrap: normal; /* Δεν αναγκάζει το σπάσιμο των λέξεων */
   background-color: #333;
   color: #fff;
   text-align: left; 
   padding: 5px;
   border-radius: 5px;
+
+  /* Τοποθέτηση πάνω από το στοιχείο */
   position: absolute;
-  z-index: 1000;
+  z-index: 1;
+  left: 105%; /* Βρίσκεται δεξιά από το trigger */
+  top: 50%; /* Κάθετα στο μέσο του trigger */
+  transform: translateY(-50%);
+
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  font-size: 16px;
+  line-height: 1.3;
 }
 
-/* Responsive στυλ για κινητές συσκευές */
-@media only screen and (max-width: 600px) {
-  .explanation-tooltip .explanation-tooltiptext {
-    max-width: 90%; /* Το tooltip να μην ξεπερνά το 90% της οθόνης */
-    left: 50%;
-    transform: translateX(-50%); /* Κεντράρει το tooltip */
-    font-size: 14px; /* Μικρότερη γραμματοσειρά για καλύτερη ανάγνωση */
-    padding: 8px; /* Λίγο μεγαλύτερο padding για αναγνωσιμότητα */
-  }
-}
 /* Εμφάνιση του tooltip όταν ο χρήστης κάνει hover */
 .explanation-tooltip:hover .explanation-tooltiptext {
   visibility: visible;
