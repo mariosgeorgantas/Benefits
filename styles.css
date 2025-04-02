@@ -113,19 +113,14 @@ body {
 }
 
 /* Το overlay που καλύπτει ολόκληρη την οθόνη */
-.disclaimer-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* ημίδιαφανές μαύρο */
-  display: none; /* αρχικά κρυφό */
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  /* Αποκλείει όλα τα click στην υπόλοιπη σελίδα */
-  pointer-events: auto;
+@media screen and (max-width: 768px) {
+  .disclaimer {
+    width: 90%; /* Να καλύπτει σχεδόν όλο το πλάτος */
+    max-width: 95vw; /* Περιορισμός στο πλάτος */
+    padding: 1rem; /* Λιγότερο padding για εξοικονόμηση χώρου */
+    font-size: 1rem; /* Μείωση του μεγέθους γραμματοσειράς */
+    line-height: 1.4; /* Καλύτερο διάστιχο */
+  }
 }
 
 /* Όταν το overlay είναι ενεργό, προσθέτουμε μια κλάση για εμφάνιση */
@@ -137,7 +132,7 @@ body {
 .disclaimer {
   position: absolute;
   top: 5%;
-  width: 40vw;
+  width: 90vw;
   height: auto;
   background-color: #fff;
   padding: 2rem;
@@ -165,22 +160,7 @@ body.modal-open *:not(.disclaimer-overlay):not(.disclaimer-overlay *) {
   /* border: 1px solid red; */
   width: 100%;
 }
-@media all and (max-width: 800px) {}
-@media all and (max-width: 500px) {}
-@media all and (max-width: 500px) {
-.p-c {
-width: 17em;
-}.project-card{
-width: 17em;
-}.welcome{
-height: 50vh;
-}.nav-item{
-width: 100%;
-}.about-overflow{
-padding-right: 10px;
-padding-left: 5px;
-flex-flow: column nowrap;
-align-content: center;
+
 align-items: center;j
 ustify-items: space-around;
 }
