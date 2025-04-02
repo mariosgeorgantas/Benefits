@@ -136,7 +136,7 @@ body {
 .disclaimer {
   position: absolute;
   top: 5%;
-  width: 40vw;
+  width: 90vw;
   height: auto;
   background-color: #fff;
   padding: 2rem;
@@ -164,4 +164,4 @@ body.modal-open *:not(.disclaimer-overlay):not(.disclaimer-overlay *) {
   /* border: 1px solid red; */
   width: 100%;
 }
-@media only screen and (max-device-width: 480px) {		#test-size{	display: none;	}	
+
