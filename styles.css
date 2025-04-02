@@ -164,4 +164,4 @@ body.modal-open *:not(.disclaimer-overlay):not(.disclaimer-overlay *) {
   /* border: 1px solid red; */
   width: 100%;
 }
-<link rel='stylesheet' media='only screen and (max-device-width: 480px)' href='/wp-content/themes/test-set/narrow.css' />
+@media only screen and (max-device-width: 480px) {		#test-size{	display: none;	}	
