@@ -73,8 +73,8 @@ body {
   /* Τοποθέτηση πάνω από το στοιχείο */
   position: absolute;
   z-index: 1;
-  left: 105%; /* Τοποθέτηση δεξιά του trigger */
-  top: 50%; /* Κάθετα στο μέσο του trigger */
+  right: 105%; /* Τοποθέτηση δεξιά του trigger */
+  top: 200%; /* Κάθετα στο μέσο του trigger */
   transform: translateY(-50%);
 
   opacity: 0;
@@ -113,7 +113,7 @@ body {
 
 /* Το overlay που καλύπτει ολόκληρη την οθόνη */
 .disclaimer-overlay {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -136,12 +136,14 @@ body {
 .disclaimer {
   position: absolute;
   top: 5%;
-  width: 90vw;
+  width: fit-content;
   height: auto;
   background-color: #fff;
   padding: 2rem;
   border-radius: 8px;
   z-index: 1001;
+  max-width: 800px;
+  overflow-y: auto;
   /* Εξασφαλίζει ότι το popup λαμβάνει pointer events */
   pointer-events: auto;
 }
@@ -154,7 +156,6 @@ body {
 #closeDisclaimer:hover {
   background-color: rgb(52, 117, 52);
 }
-
 /* Όταν το modal είναι ανοιχτό, αποτρέπουμε pointer events στην υπόλοιπη σελίδα */
 body.modal-open *:not(.disclaimer-overlay):not(.disclaimer-overlay *) {
   pointer-events: none;
@@ -164,4 +165,3 @@ body.modal-open *:not(.disclaimer-overlay):not(.disclaimer-overlay *) {
   /* border: 1px solid red; */
   width: 100%;
 }
-
