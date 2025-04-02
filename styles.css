@@ -11,7 +11,6 @@ body {
   flex-wrap: wrap;
 }
 
-
 #intro-box {
   background-color: #f0f0f0;
   padding: 20px;
@@ -48,7 +47,7 @@ body {
   }
 }
 
-/* Στυλ για το στοιχείο που περιέχει το tooltip */
+/* Στυλ στοιχείου του tooltip */
 .explanation-tooltip {
   position: relative;
   display: inline-block;
@@ -62,19 +61,19 @@ body {
   width: 400px;
   max-width: 400px;
 
-  white-space: none; /* Επιτρέπει το wrapping σε νέες γραμμές, χωρίς να σπάει οι λέξεις */
-  word-break: normal; /* Δεν διασπά τις λέξεις */
-  overflow-wrap: normal; /* Δεν αναγκάζει το σπάσιμο των λέξεων */
+  white-space: none; /* Επιτρέπεται το wrapping σε νέες γραμμές, χωρίς σπάσιμο λέξεων */
+  word-break: normal; /* Δεν διασπόνται οι λέξεις */
+  overflow-wrap: normal; /* Μη αναγκαστικό σπάσιμο λέξεων */
   background-color: #333;
   color: #fff;
-  text-align: left; 
+  text-align: center; 
   padding: 5px;
   border-radius: 5px;
 
   /* Τοποθέτηση πάνω από το στοιχείο */
   position: absolute;
   z-index: 1;
-  left: 105%; /* Βρίσκεται δεξιά από το trigger */
+  left: 105%; /* Τοποθέτηση δεξιά του trigger */
   top: 50%; /* Κάθετα στο μέσο του trigger */
   transform: translateY(-50%);
 
@@ -91,7 +90,7 @@ body {
   opacity: 1;
 }
 
-/* Προαιρετικό "βέλος" για το tooltip  */
+/* Προαιρετικό "βέλος" για το tooltip */
 .explanation-tooltip .explanation-tooltiptext::after {
   content: "";
   position: absolute;
@@ -113,17 +112,22 @@ body {
 }
 
 /* Το overlay που καλύπτει ολόκληρη την οθόνη */
-@media screen and (max-width: 768px) {
-  .disclaimer {
-    width: 90%; /* Να καλύπτει σχεδόν όλο το πλάτος */
-    max-width: 95vw; /* Περιορισμός στο πλάτος */
-    padding: 1rem; /* Λιγότερο padding για εξοικονόμηση χώρου */
-    font-size: 1rem; /* Μείωση του μεγέθους γραμματοσειράς */
-    line-height: 1.4; /* Καλύτερο διάστιχο */
-  }
+.disclaimer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* ημίδιαφανές μαύρο */
+  display: none; /* αρχικά κρυφό */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  /* Αποκλεισμός click στην υπόλοιπη σελίδα */
+  pointer-events: auto;
 }
 
-/* Όταν το overlay είναι ενεργό, προσθέτουμε μια κλάση για εμφάνιση */
+/* Όταν το overlay είναι ενεργό, προσθήκη κλάσης για εμφάνιση */
 .disclaimer-overlay.active {
   display: flex;
 }
@@ -132,7 +136,7 @@ body {
 .disclaimer {
   position: absolute;
   top: 5%;
-  width: 90vw;
+  width: 40vw;
   height: auto;
   background-color: #fff;
   padding: 2rem;
@@ -151,7 +155,7 @@ body {
   background-color: rgb(52, 117, 52);
 }
 
-/* Επιπλέον, όταν το modal είναι ανοιχτό, αποτρέπουμε pointer events στην υπόλοιπη σελίδα */
+/* Όταν το modal είναι ανοιχτό, αποτρέπουμε pointer events στην υπόλοιπη σελίδα */
 body.modal-open *:not(.disclaimer-overlay):not(.disclaimer-overlay *) {
   pointer-events: none;
 }
@@ -159,8 +163,4 @@ body.modal-open *:not(.disclaimer-overlay):not(.disclaimer-overlay *) {
 #disclaimer-prompt {
   /* border: 1px solid red; */
   width: 100%;
-}
-
-align-items: center;j
-ustify-items: space-around;
 }
