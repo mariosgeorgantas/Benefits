@@ -203,34 +203,34 @@
         <div class="question-container" id="question-container" tabindex="7">
           <!-- Φόρτωση των ερωτήσεων μέσω jQuery -->
         </div>
-
+      
         <div class="buttons-container">
+          <!-- Κουμπί Πίσω με βέλος αριστερά -->
           <button
-            class="govgr-btn govgr-btn-primary govgr-btn-cta"
-            id="nextQuestion"
-            style="display: none"
-          >
-            <span
-              class="language-component"
-              data-component="nextQuestion"
-              tabindex="8"
-              >Επόμενη ερώτηση</span
-            >
-            <svg
-              viewBox="0 0 24 24"
-              class="govgr-arrow--right"
-              focusable="false"
-              aria-hidden="true"
-            >
-              <path d="M8.5,2L6.1,4.3l7.6,7.7l-7.6,7.6L8.5,22l10-10L8.5,2z" />
-            </svg>
-          </button>
-          <button
-            class="govgr-btn govgr-btn-primary govgr-btn-cta"
+            class="govgr-btn govgr-btn-primary govgr-btn-cta back-btn"
             id="backQuestion"
             style="display: none"
           >
-            Πίσω
+            <svg
+              viewBox="0 0 24 24"
+              class="govgr-arrow-left"
+              xmlns="http://www.w3.org/2000/svg"
+      focusable="false"
+      aria-hidden="true"
+            >
+              <path d="M15.5,22l2.4-2.3L10.3,12l7.6-7.6L15.5,2l-10,10L15.5,22z" />
+            </svg>
+            <span class="language-component" data-component="backQuestion" tabindex="8">
+              Πίσω
+            </span>
+          </button>
+
+          <button
+            class="govgr-btn govgr-btn-primary govgr-btn-cta"
+            id="nextQuestion"
+            style="display: block"
+          >
+            Επόμενη Ερώτηση
           </button>
         </div>
       </div>
