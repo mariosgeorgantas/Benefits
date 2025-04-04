@@ -58,9 +58,12 @@ body {
 .explanation-tooltip .explanation-tooltiptext {
   visibility: hidden;
   /* Μέγιστο πλάτος του tooltip */
-  width: 400px;
-  max-width: 400px;
+     
+    width: 50vw;
+    max-width: 800px;
+    overflow-x: visible;
 
+  
   white-space: none; /* Επιτρέπεται το wrapping σε νέες γραμμές, χωρίς σπάσιμο λέξεων */
   word-break: normal; /* Δεν διασπόνται οι λέξεις */
   overflow-wrap: normal; /* Μη αναγκαστικό σπάσιμο λέξεων */
@@ -76,7 +79,6 @@ body {
   right: 105%; /* Τοποθέτηση δεξιά του trigger */
   top: 200%; /* Κάθετα στο μέσο του trigger */
   transform: translateY(-50%);
-
   opacity: 0;
   transition: opacity 0.3s;
 
@@ -106,6 +108,13 @@ body {
   justify-content: flex-start;
   /* border: 1px solid red; */
   gap: 15px;
+}
+
+
+.govgr-arrow-left {
+  width: 20px;  /* Μεγαλύτερο μέγεθος για καλύτερη ορατότητα */
+  height: 20px;
+  fill: black; /* Άλλαξέ το αν χρειάζεται */
 }
 #backQuestion {
   border-radius: 5px;
