@@ -53,86 +53,81 @@ body {
   display: inline-block;
   cursor: help;
   color: green !important;
+  margin-left: 5px; /* Διατηρούμε το ερωτηματικό κοντά στην πρόταση */
 }
 
 .explanation-tooltip .explanation-tooltiptext {
   visibility: hidden;
-  /* Μέγιστο πλάτος του tooltip */
-     
-    width: 50vw;
-    max-width: 800px;
-    overflow-x: visible;
-
-  
-  white-space: none; /* Επιτρέπεται το wrapping σε νέες γραμμές, χωρίς σπάσιμο λέξεων */
-  word-break: normal; /* Δεν διασπώνται οι λέξεις */
-  overflow-wrap: normal; /* Μη αναγκαστικό σπάσιμο λέξεων */
+  width: 50vw;
+  max-width: 800px;
+  overflow-x: visible;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
   background-color: #333;
   color: #fff;
-  text-align: center; 
+  text-align: center;
   padding: 5px;
   border-radius: 5px;
-
-  /* Τοποθέτηση πάνω από το στοιχείο */
   position: absolute;
   z-index: 1;
-  right: 105%; /* Τοποθέτηση δεξιά του trigger */
-  top: 200%; /* Κάθετα στο μέσο του trigger */
-  transform: translateY(-50%);
+  left: 50%;
+  top: 120%;
+  transform: translateX(-50%);
   opacity: 0;
-  transition: opacity 0.3s;
-
+  transition: opacity 0.3s, margin-top 0.3s;
+  margin-top: 0;
   font-size: 16px;
   line-height: 1.3;
 }
 
-/* Εμφάνιση του tooltip όταν ο χρήστης κάνει hover */
+/* Όταν ο χρήστης κάνει hover, δημιουργείται κενό και εμφανίζεται η επεξήγηση */
 .explanation-tooltip:hover .explanation-tooltiptext {
   visibility: visible;
   opacity: 1;
+  margin-top: 10px; /* Προσθήκη κενού δυναμικά */
 }
 
 /* Προαιρετικό "βέλος" για το tooltip */
 .explanation-tooltip .explanation-tooltiptext::after {
   content: "";
   position: absolute;
-  top: 50%;
-  right: 100%; /* Το βέλος θα εμφανίζεται στα αριστερά του tooltip */
-  transform: translateY(-50%);
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   border-width: 5px;
   border-style: solid;
-  border-color: transparent #333 transparent transparent;
+  border-color: transparent transparent #333 transparent;
 }
+
 .buttons-container {
   display: flex;
   justify-content: flex-start;
-  /* border: 1px solid red; */
   gap: 15px;
 }
 
-
 .govgr-arrow-left {
-  width: 20px;  /* Μεγαλύτερο μέγεθος για καλύτερη ορατότητα */
+  width: 20px;
   height: 20px;
   fill: black; 
 }
+
 #backQuestion {
   border-radius: 5px;
 }
 
 /* Το overlay που καλύπτει ολόκληρη την οθόνη */
 .disclaimer-overlay {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* ημίδιαφανές μαύρο */
-  display: none; /* αρχικά κρυφό */
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  /* Αποκλεισμός click στην υπόλοιπη σελίδα */
   pointer-events: auto;
 }
 
@@ -146,31 +141,31 @@ body {
   position: absolute;
   top: 5%;
   width: fit-content;
-  height: auto;
   background-color: #fff;
   padding: 2rem;
   border-radius: 8px;
   z-index: 1001;
   max-width: 800px;
   overflow-y: auto;
-  /* Εξασφαλίζει ότι το popup λαμβάνει pointer events */
   pointer-events: auto;
 }
+
 #closeDisclaimer {
   background-color: green;
   color: white;
   padding: 5px;
   border-radius: 5px;
 }
+
 #closeDisclaimer:hover {
   background-color: rgb(52, 117, 52);
 }
+
 /* Όταν το modal είναι ανοιχτό, αποτρέπουμε pointer events στην υπόλοιπη σελίδα */
 body.modal-open *:not(.disclaimer-overlay):not(.disclaimer-overlay *) {
   pointer-events: none;
 }
 
 #disclaimer-prompt {
-  /* border: 1px solid red; */
   width: 100%;
 }
