@@ -65,7 +65,7 @@ body {
 
   
   white-space: none; /* Επιτρέπεται το wrapping σε νέες γραμμές, χωρίς σπάσιμο λέξεων */
-  word-break: normal; /* Δεν διασπόνται οι λέξεις */
+  word-break: normal; /* Δεν διασπώνται οι λέξεις */
   overflow-wrap: normal; /* Μη αναγκαστικό σπάσιμο λέξεων */
   background-color: #333;
   color: #fff;
@@ -114,7 +114,7 @@ body {
 .govgr-arrow-left {
   width: 20px;  /* Μεγαλύτερο μέγεθος για καλύτερη ορατότητα */
   height: 20px;
-  fill: black; /* Άλλαξέ το αν χρειάζεται */
+  fill: black; 
 }
 #backQuestion {
   border-radius: 5px;
